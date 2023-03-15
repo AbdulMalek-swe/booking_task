@@ -80,8 +80,9 @@ const {
   module.exports.getMe= async (req, res) => {
     try {
       //    console.log(req.body);
-      const result = await findUserByEmail(req.user?.email);
+      const result = await findUserByEmail(req.query.email);
       const {password:pwd,...others} = result.toObject();
+      
       res.status(200).json({
         status: "succesfful",
         message: "get user data",
