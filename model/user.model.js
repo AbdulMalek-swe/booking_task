@@ -9,11 +9,11 @@ const userSchema = mongoose.Schema(
       trim: true,
       lowercase: true,
       unique: true,
-    //   required: [true, "Email address is required"],
+      required: [true, "Email address is required"],
     },
     password: {
       type: String,
-    //   required: [true, "Password is required"],
+      required: [true, "Password is required"],
       validate: {
         validator: (value) =>
           validator.isStrongPassword(value, {
@@ -25,7 +25,7 @@ const userSchema = mongoose.Schema(
     },
     confirmPassword: {
       type: String,
-    //   required: [true, "Please confirm your password"],
+      required: [true, "Please confirm your password"],
       validate: {
         validator: function (value) {
           return value === this.password;
@@ -40,16 +40,16 @@ const userSchema = mongoose.Schema(
       default: "customer",
     },
 
-    firstName: {
+    firstname: {
       type: String,
-    //   required: [true, "Please provide a first name"],
+      required: [true, "Please provide a first name"],
       trim: true,
       minLength: [3, "Name must be at least 3 characters."],
       maxLength: [100, "Name is too large"],
     },
-    lastName: {
+    lastmame: {
       type: String,
-    //   required: [true, "Please provide a first name"],
+      required: [true, "Please provide a first name"],
       trim: true,
       minLength: [3, "Name must be at least 3 characters."],
       maxLength: [100, "Name is too large"],

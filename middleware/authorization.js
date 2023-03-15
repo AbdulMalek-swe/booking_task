@@ -5,7 +5,6 @@ module.exports=(...role)=>{
         return res.status(403).json({
              status: "authentiacation failed",
              message: "you are not allow to enter data",
-              
            })
      }
      next()
