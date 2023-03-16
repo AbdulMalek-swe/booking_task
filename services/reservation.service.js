@@ -1,7 +1,9 @@
 const Reservation = require("../model/resirvation.model");
+const User = require("../model/user.model");
 
-module.exports.getReservationService = async()=>{
-    const result = await Reservation.find({});
+module.exports.getReservationService = async(email)=>{
+     const {_id} = await User.findOne({email:email})
+    const result = await Reservation.find({id:_id});
     return result;
 }
 module.exports.postReservationService = async(data)=>{
@@ -14,7 +16,14 @@ module.exports.postReservationService = async(data)=>{
     else{
         return;  
     } 
-
-
-    
+}
+module.exports.cancelReservationService = async(id)=>{
+    const  {status} = await Reservation.findById(id);
+    if(!status){
+        const result = await Reservation.deleteOne({_id:id})
+        return result;
+    }
+    else{
+        return;  
+    } 
 }

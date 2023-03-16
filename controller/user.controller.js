@@ -5,8 +5,6 @@ const {
     findUserByToken}
     = require("../services/user.service");
   const { generateToken } = require("../utils/token");
- 
- 
   module.exports.signup = async (req, res) => {
     try {
          console.log(req.body);

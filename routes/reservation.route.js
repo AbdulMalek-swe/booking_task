@@ -8,4 +8,8 @@ router
     .route("/reservation")
     .get(verifyToken, reservation.getReservation)
     .post(verifyToken, reservation.postReservation)
+
+    router
+    .route("/reservation/:id")
+    .delete(verifyToken,reservation.cancelReservation)
 module.exports = router;
