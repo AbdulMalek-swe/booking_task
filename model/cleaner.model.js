@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
- 
+ const {ObjectId} = mongoose.Types;
 const cleanerSchema = mongoose.Schema(
   {
     servicename:{
@@ -24,6 +24,10 @@ const cleanerSchema = mongoose.Schema(
         type:String,
         require:[true,'provide a job lavel'],
         trim:true
+      },
+      id:{
+      type:ObjectId,
+        required:[true,"cleaner id must be provider"]
       }
   },
   {

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router
     .route("/cleaner")
-    // .get(verifyToken,authorization('cleaner','admin'), cleaner.getCleaner)
+    .get(verifyToken,authorization('cleaner','admin'), cleaner.getCleaner)
     .post(verifyToken,authorization('cleaner','admin'), cleaner.postCleaner)
 
 
