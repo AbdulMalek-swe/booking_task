@@ -5,6 +5,16 @@ module.exports.getReservationService = async()=>{
     return result;
 }
 module.exports.postReservationService = async(data)=>{
-    const result = await Reservation(data).save();
-    return result;
+    const id = await Reservation.findOne( {id:data.id});
+    console.log(id);
+    if(!id){
+        const result = await Reservation(data).save();
+        return result;
+    }
+    else{
+        return;  
+    } 
+
+
+    
 }

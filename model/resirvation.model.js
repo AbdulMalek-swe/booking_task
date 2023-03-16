@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
  const {ObjectId} = mongoose.Types;
+ const validator = require("validator");
 const reservationSchema = mongoose.Schema(
   {
+    id: {
+      type: ObjectId,
+      required: [true, "Email address is required"],
+    },
     servicename:{
-      type:String,
+      type:String, 
       required:[true,"please provide service name"],
     },
     cleanername:{
-        firstname: {
+        firstname: { 
             type: String,
             required: [true, "Please provide a first name"],
             trim: true,

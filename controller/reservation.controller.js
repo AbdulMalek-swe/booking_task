@@ -14,15 +14,21 @@ module.exports.getReservation = async(req,res)=>{
        res.status(400).json({
            error:error.message
        })
-   }
+    }
 }
-module.exports.postReservatio = async(req,res) =>{
+module.exports.postReservation = async(req,res) =>{
    try{
        const data = req.body;
        const result = await postReservationService(data);
+       if(!result){
+        return res.status(400).json({
+            message:"twice reservation is not possible",
+          
+        })
+       }
        res.status(200).json({
            message:"succesfully created reservation",
-           result
+           result  
        }) 
    }
    catch(error){
